@@ -6,7 +6,6 @@ local _, addon = ...
 
 local spellList = {
 	["DEATHKNIGHT"] = {
-		[42650] =	{ name = "Army of the Dead", phonetic_name = "", type = "offensive"},
 		[47568] =	{ name = "Empower Rune Weapon", phonetic_name = "", type = "offensive"},
 		[48707] =	{ name = "Anti Magic Shell", phonetic_name = "", type = "defensive"},
 		[48743] =	{ name = "Death Pact", phonetic_name = "", type = "defensive"},
@@ -30,7 +29,8 @@ local spellList = {
 		[221562] =	{ name = "Asphyxiate", phonetic_name = "", type = "defensive"},
 		[279302] =	{ name = "Frostwyrm's Fury", phonetic_name = "Frostwerm's Fury", type = "offensive"},
 		[315443] =	{ name = "Abomination Limb", phonetic_name = "", type = "covenant"},
-		[327574] =	{ name = "Sacrificial Pact", phonetic_name = "", type = "defensive"},
+		[123456] =	{ name = "TEST MOD", phonetic_name = "", type = "defensive"},
+		[1234567] =	{ name = "TEST ADDED", phonetic_name = "", type = "offensive"},
 	},
 	["DEMONHUNTER"] = {
 		[179057] =	{ name = "Chaos Nova", phonetic_name = "", type = "cc"},
