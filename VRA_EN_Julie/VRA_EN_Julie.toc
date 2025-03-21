@@ -1,12 +1,11 @@
-## Interface: 100205
-## Interface-Wrath: 30403
-## Interface-Classic: 11501
+## Interface: 110100
+## Interface-Cata: 40402
+## Interface-Classic: 11506
 ## Title: VRA_EN_Julie
 ## Notes: VoicePack for Vocal Raid Assistant Addon
 ## Dependencies: VocalRaidAssistant
 ## Author: The VRA Team
-## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\VOICECHAT-SPEAKER.blp
-## Version: 3.4.2
-
+## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\icon.tga
+## Version: 3.7.6
 VRA_EN_Julie.lua
 

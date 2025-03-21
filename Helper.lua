@@ -7,17 +7,17 @@ local intendedWoWProject = WOW_PROJECT_MAINLINE
 --@version-classic@
 intendedWoWProject = WOW_PROJECT_CLASSIC
 --@end-version-classic@
---@version-wrath@
-intendedWoWProject = WOW_PROJECT_WRATH_CLASSIC or WOW_PROJECT_MAINLINE
---@end-version-wrath@
+--@version-cata@
+intendedWoWProject = WOW_PROJECT_CATA_CLASSIC or 14
+--@end-version-cata@
 --@end-non-version-retail@]===]
 
 function addon:IsClassic()
 	return WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
 end
 
-function addon:IsWrath()
-	return WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC
+function addon:IsCata()
+	return WOW_PROJECT_ID == WOW_PROJECT_CATA_CLASSIC or 14
 end
 
 function addon:IsRetail()
@@ -28,6 +28,10 @@ function addon:IsCorrectVersion()
 	return intendedWoWProject == WOW_PROJECT_ID
 end
 
+function addon:IsTWW()
+	return select(4, GetBuildInfo()) >= 110000
+end
+
 function addon:prettyPrint(...)
 	print("|c00ff0000Vocal Raid Assistant:|r ", ...)
 end
@@ -35,7 +39,7 @@ end
 local intendedWoWProjectName = {
 	[WOW_PROJECT_MAINLINE] = "Retail",
 	[WOW_PROJECT_CLASSIC] = "Classic",
-	[WOW_PROJECT_WRATH_CLASSIC or 11] = "Wrath of the Lich King Classic"
+	[WOW_PROJECT_CATA_CLASSIC or 14] = "Cataclysm Classic"
 }
 
 function addon:determinePlayerError(spellID, channel, isTest)
@@ -51,8 +55,7 @@ function addon:determinePlayerError(spellID, channel, isTest)
 				, channel, channel)
 		end
 	else
-		errorMsg = format("Missing soundfile for configured spell: %d - %s, Voice Pack: %s", spellID, GetSpellInfo(spellID) or spellID,
-			addon.profile.sound.soundpack)
+		errorMsg = format("Missing soundfile for configured spell: %d , Voice Pack: %s", spellID, addon.profile.sound.soundpack)
 	end
 	return errorMsg
 end

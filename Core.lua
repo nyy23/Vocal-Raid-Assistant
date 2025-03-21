@@ -17,20 +17,21 @@ end
 local function checkEventType(event)
 	local allowedSubEvents = {
 		["SPELL_CAST_SUCCESS"] = true,
-		--["SPELL_AURA_APPLIED"] = true,
+		["SPELL_AURA_APPLIED"] = true,
 		["SPELL_INTERRUPT"] = true,
 	}
 	return allowedSubEvents[event] or false
 end
 
-local targetTypePlayer = bit.bor(COMBATLOG_OBJECT_TARGET, COMBATLOG_OBJECT_TYPE_PLAYER, COMBATLOG_OBJECT_CONTROL_PLAYER)
 local function checkSpellTarget(destFlags, destGUID)
-	return destGUID == '' or (bit.band(destFlags, targetTypePlayer) > 0 and destGUID == UnitGUID("player"))
+	return destGUID == '' or -- AOE
+	destGUID == UnitGUID("player") or -- Cast on us
+	bit.band(destFlags, COMBATLOG_OBJECT_TYPE_NPC) == COMBATLOG_OBJECT_TYPE_NPC -- Target = NPC
 end
 
 local spellCheckFunctions = {
-	["CAST"] = function(_, spellID, destFlags, destGUID)
-		if not addon.profile.general.onlySelf or (addon.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID)) and addon:IsSpellSupported(spellID) then
+	["CAST"] = function(instanceType, spellID, destFlags, destGUID)
+		if not addon.profile.general.area[instanceType].onlySelf or (addon.profile.general.area[instanceType].onlySelf and checkSpellTarget(destFlags, destGUID)) and addon:IsSpellSupported(spellID) then
 			addon:playSpell(spellID)
 		end
 	end,
@@ -42,6 +43,12 @@ local spellCheckFunctions = {
 	["INTERRUPT"] = function(instanceType)
 		if addon.profile.general.area[instanceType].enableInterrupts then
 			addon:playSpell('countered')
+		end
+	end,
+	["AURA_APPLICATION"] = function(instanceType, spellID)
+		-- We only watch for aura applications of cheat death debuffs
+		if addon.cheatDeathList[spellID] and addon.profile.general.area[instanceType].enableCheatDeaths then
+			addon:playSpell(spellID)
 		end
 	end
 }
@@ -70,6 +77,8 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 		elseif addon.tauntList[spellID] then
 			checkHandler = spellCheckFunctions["TAUNT"]
 		end
+	elseif event == 'SPELL_AURA_APPLIED' then
+		checkHandler = spellCheckFunctions["AURA_APPLICATION"]
 	elseif event == 'SPELL_INTERRUPT' then
 		checkHandler = spellCheckFunctions["INTERRUPT"]
 	end

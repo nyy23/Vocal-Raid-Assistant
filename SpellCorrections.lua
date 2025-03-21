@@ -12,6 +12,10 @@ local spellCorrectionsRetail = {
 	[269352] = 51514, -- Tome of Hex: Skeletal Hatchling
 	[277778] = 51514, -- Tome of Hex: Zandalari Tendonripper
 	[309328] = 51514, -- Tome of Hex: Living Honey
+	-- Shaman Stormkeeper
+	[383009] = 191634,
+	-- Primordial Wave
+	[428332] = 375982,
 	-- Mage Polymorph
 	[28271] = 118, -- Tome of Polymorph: Turtle
 	[28272] = 118, -- Polymorph: Pig
@@ -34,6 +38,8 @@ local spellCorrectionsRetail = {
 	[232633] = 25046,
 	-- Druid Stampeding Roar
 	[77761] = 106898,
+	-- Typhoon
+	[132469] = 61391,
 	-- Ascendance
 	[114051] = 114050,
 	[114052] = 114050,
@@ -78,6 +84,20 @@ local spellCorrectionsRetail = {
 	[323673] = 375901,
 	-- Echoing Reprimand
 	[323547] = 385616,
+	--Smoke Bomb
+	[359053] = 212182,
+	-- Devine Protection
+	[403876] = 498,
+	--Raise Abomination
+	[455395] = 288853,
+	--Halo
+	[120644] = 120517,
+	--Mindbender
+	[200174] = 123040,
+	--Coordinated Assault
+	[360952] = 266779,
+	--Lay On Hands
+	[471195] = 633,
 }
 
 local spellIconCorrections = {
@@ -86,8 +106,15 @@ local spellIconCorrections = {
 	[135860] = 1247263
 }
 
--- Wrath
-local spellCorrectionsWrath = {
+local spellNameCorrections = {
+	[115203] = true,
+	[243435] = true,
+	[422083] = true,
+	[422750] = true
+}
+
+-- Cata
+local spellCorrectionsCata = {
 	--- Druid
 	-- Bash
 	[6798] = 5211, -- Rank 2
@@ -263,18 +290,19 @@ local spellCorrectionsClassic = {
 
 addon.spellCorrections = spellCorrectionsRetail
 addon.spellIconCorrections = spellIconCorrections
+addon.spellNameCorrections = spellNameCorrections
 
 --[===[@non-version-retail@
 spellCorrectionsRetail = nil
 
 --@version-classic@
 addon.spellCorrections = spellCorrectionsClassic
-spellCorrectionsWrath = nil
+spellCorrectionsCata = nil
 --@end-version-classic@
 
---@version-wrath@
-addon.spellCorrections = spellCorrectionsWrath
+--@version-cata@
+addon.spellCorrections = spellCorrectionsCata
 spellCorrectionsClassic = nil
---@end-version-wrath@
+--@end-version-cata@
 
 --@end-non-version-retail@]===]

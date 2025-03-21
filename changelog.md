@@ -1,5 +1,83 @@
 # Vocal Raid Assistant
 
+## 3.7.6
+- Fix Evangelism spellID
+
+## 3.7.5
+- Fix Lay on Hands / Empyreal Ward
+
+## 3.7.4
+- Added Eye of Tyr
+
+## 3.7.3
+- Bump toc for 11.1.0
+
+## 3.7.2
+- Bump toc for 11.0.7
+
+## 3.7.1
+- Bump toc for 11.0.5
+
+## 3.7.0
+- Added a lot of spells
+
+## 3.6.1
+- Fix Addon not loading due to more removed API function
+
+## 3.6.0
+- Fix Addon not loading due to removed API function
+
+## 3.5.7
+- Added Fade
+- Added Vengeful Retreat
+- Added Mage Table
+- Added Ritual of Summoning
+
+## 3.5.6
+- Fix Typhoon
+- Added Mortal Coil
+- Added Thunderstorm
+
+## 3.5.5
+- Fix "OnlyOnMe" filter
+
+## 3.5.4
+- Fix wrong closing tag in version specific code replacements
+
+## 3.5.3
+- Adapt VRA for Cata Prepatch
+
+## 3.5.2
+- Bump toc for 10.2.7
+
+## 3.5.1
+- Added Ice Cold
+
+## 3.5.0
+- Added cheat death proccs
+- Added spell name changes (e.g. Fort Brew - Mistweaver, Fort Brew - Brewmaster)
+- Moved 'OnlySelf' Config to each zone
+- Added Dark Arbiter
+- Added Cyclone
+- Added Tainted Rageheart
+- Added PvP Trinkets
+- Update Readme & Logo
+
+## 3.4.6
+- Bump Version to 10.2.6
+
+## 3.4.5
+- Fix broken minimap button
+- Added Dragon's Breath (WotlK)
+- Added Curse of Weakness
+- Added Curse of Tongues
+- Added Storm Bolt
+- Added Smoldering Seedling
+
+## 3.4.4
+- Fix addon not loading in Wrath
+- Add missing Spell Reflect (Classic)
+
 ## 3.4.3
 - Fixed a bug that could cause the profile to be reset
 
@@ -11,12 +89,12 @@
 
 ## 3.4.1
 - Added Racial Abilities:
-	- Bull Rush
-	- Stoneform
-	- Arcane Torrent
-	- Blast Wave
-	- Dragon's Breath
-	- Upheaval
+- Bull Rush
+- Stoneform
+- Arcane Torrent
+- Blast Wave
+- Dragon's Breath
+- Upheaval
 
 
 ## 3.4.0
